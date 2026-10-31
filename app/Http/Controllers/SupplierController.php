@@ -51,11 +51,7 @@ class SupplierController extends Controller
 
     public function destroy(Supplier $supplier)
     {
-        try {
-            $supplier->delete();
-        } catch (\Illuminate\Database\QueryException $e) {
-            return redirect()->route('suppliers.index')->with('error', 'Supplier tidak dapat dihapus karena masih digunakan oleh produk.');
-        }
+        $supplier->delete();
         return redirect()->route('suppliers.index')->with('success', 'Supplier berhasil dihapus.');
     }
 }
