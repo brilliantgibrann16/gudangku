@@ -66,7 +66,7 @@ Aplikasi web full-stack berbasis Laravel + MySQL untuk mengelola inventaris guda
    Akses: http://127.0.0.1:8000
 
 ## Deployment
-Live application: https://app-2245abab-8a02-48bf-86d2-292428ff3b8d.cleverapps.io (Clever Cloud, PHP + MySQL). Alternatif lokal: `php artisan serve` (http://127.0.0.1:8000).
+Live application: https://gudangkuprojectsid.cleverapps.io (Clever Cloud, PHP + MySQL). Alternatif lokal: `php artisan serve` (http://127.0.0.1:8000).
 
 ## Struktur MVC
 - `app/Http/Controllers/` - Controller
