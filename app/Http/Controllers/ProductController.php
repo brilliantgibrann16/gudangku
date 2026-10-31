@@ -71,7 +71,6 @@ class ProductController extends Controller
             'sku' => ['required', 'string', 'max:60', 'unique:products,sku,' . $product->id],
             'description' => ['nullable', 'string', 'max:1000'],
             'price' => ['required', 'numeric', 'min:0'],
-            'stock' => ['required', 'integer', 'min:0'],
             'min_stock' => ['required', 'integer', 'min:0'],
         ]);
 
