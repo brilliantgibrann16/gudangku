@@ -19,7 +19,7 @@ Aplikasi web full-stack berbasis Laravel + MySQL untuk mengelola inventaris guda
 - Pagination
 
 ## Live Application
-- **URL:** https://app-2245abab-8a02-48bf-86d2-292428ff3b8d.cleverapps.io
+- **URL:** https://gudangkuprojectsid.cleverapps.io
 - **Admin:** admin@gudangku.test / password
 - **Staff:** staff@gudangku.test / password
 
@@ -78,4 +78,4 @@ Live application: https://app-2245abab-8a02-48bf-86d2-292428ff3b8d.cleverapps.io
 - `database/seeders/` - Data awal
 
 ## Lisensi
-Tugas UAS - Universitas Cakrawala.
+Tugas UAS - Cakrawala University.
