@@ -41,8 +41,9 @@
                 <input type="number" step="0.01" name="price" value="{{ old('price', 0) }}" required class="w-full border rounded px-3 py-2">
             </div>
             <div>
-                <label class="block text-sm font-medium mb-1">Stok</label>
-                <input type="number" name="stock" value="{{ old('stock', 0) }}" required class="w-full border rounded px-3 py-2">
+                <label class="block text-sm font-medium mb-1">Stok Awal</label>
+                <input type="number" name="stock" value="{{ old('stock', 0) }}" min="0" required class="w-full border rounded px-3 py-2">
+                <p class="text-xs text-slate-500 mt-1">Stok awal dicatat otomatis sebagai movement "in".</p>
             </div>
             <div>
                 <label class="block text-sm font-medium mb-1">Min Stok</label>

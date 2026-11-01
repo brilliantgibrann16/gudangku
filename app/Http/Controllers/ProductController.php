@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\StockMovement;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -47,10 +49,26 @@ class ProductController extends Controller
             'sku' => ['required', 'string', 'max:60', 'unique:products,sku'],
             'description' => ['nullable', 'string', 'max:1000'],
             'price' => ['required', 'numeric', 'min:0'],
+            'stock' => ['nullable', 'integer', 'min:0'],
             'min_stock' => ['required', 'integer', 'min:0'],
         ]);
 
-        Product::create($data);
+        $initialStock = (int) ($data['stock'] ?? 0);
+        unset($data['stock']);
+
+        $product = Product::create($data);
+
+        if ($initialStock > 0) {
+            StockMovement::create([
+                'product_id' => $product->id,
+                'user_id' => Auth::id(),
+                'type' => 'in',
+                'quantity' => $initialStock,
+                'note' => 'Stok awal',
+            ]);
+            $product->increment('stock', $initialStock);
+        }
+
         return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
