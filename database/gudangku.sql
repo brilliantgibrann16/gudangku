@@ -89,7 +89,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Elektronik','Barang elektronik','2026-10-31 02:06:46','2026-10-31 02:06:46'),(2,'ATK','Alat tulis kantor','2026-10-31 02:06:46','2026-10-31 02:06:46'),(3,'Makanan','Produk makanan','2026-10-31 02:06:46','2026-10-31 02:06:46');
+INSERT INTO `categories` VALUES (1,'Elektronik','Barang elektronik','2026-11-01 06:36:02','2026-11-01 06:36:02'),(2,'ATK','Alat tulis kantor','2026-11-01 06:36:02','2026-11-01 06:36:02'),(3,'Makanan','Produk makanan','2026-11-01 06:36:02','2026-11-01 06:36:02');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +195,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_10_31_063514_add_role_to_users_table',1),(5,'2026_10_31_063515_create_categories_table',1),(6,'2026_10_31_063516_create_suppliers_table',1),(7,'2026_10_31_063517_create_products_table',1),(8,'2026_10_31_063518_create_stock_movements_table',1);
+INSERT INTO `migrations` VALUES (1,'0001_01_01_000000_create_users_table',1),(2,'0001_01_01_000001_create_cache_table',1),(3,'0001_01_01_000002_create_jobs_table',1),(4,'2026_10_31_063514_add_role_to_users_table',1),(5,'2026_10_31_063515_create_categories_table',1),(6,'2026_10_31_063516_create_suppliers_table',1),(7,'2026_10_31_063517_create_products_table',1),(8,'2026_10_31_063518_create_stock_movements_table',1),(9,'2026_11_01_132910_reconcile_seed_stock_movements',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +266,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,1,1,'Keyboard Mechanical','ELE-001','Keyboard mechanical RGB',450000.00,10,5,'2026-10-31 02:06:46','2026-10-31 02:06:46'),(2,1,1,'Mouse Wireless','ELE-002','Mouse wireless 2.4G',125000.00,3,5,'2026-10-31 02:06:46','2026-10-31 02:06:46'),(3,2,2,'Kertas A4','ATK-001','Kertas A4 80gsm',45000.00,45,10,'2026-10-31 02:06:46','2026-10-31 02:06:46'),(4,3,2,'Kopi Sachet','MKN-001','Kopi instan sachet',2000.00,100,20,'2026-10-31 02:06:46','2026-10-31 02:06:46');
+INSERT INTO `products` VALUES (1,1,1,'Keyboard Mechanical','ELE-001','Keyboard mechanical RGB',450000.00,10,5,'2026-11-01 06:36:02','2026-11-01 06:36:02'),(2,1,1,'Mouse Wireless','ELE-002','Mouse wireless 2.4G',125000.00,3,5,'2026-11-01 06:36:02','2026-11-01 06:36:02'),(3,2,2,'Kertas A4','ATK-001','Kertas A4 80gsm',45000.00,45,10,'2026-11-01 06:36:02','2026-11-01 06:36:02'),(4,3,2,'Kopi Sachet','MKN-001','Kopi instan sachet',2000.00,100,20,'2026-11-01 06:36:02','2026-11-01 06:36:02');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,7 +320,7 @@ CREATE TABLE `stock_movements` (
   KEY `stock_movements_user_id_foreign` (`user_id`),
   CONSTRAINT `stock_movements_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE RESTRICT,
   CONSTRAINT `stock_movements_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +329,7 @@ CREATE TABLE `stock_movements` (
 
 LOCK TABLES `stock_movements` WRITE;
 /*!40000 ALTER TABLE `stock_movements` DISABLE KEYS */;
-INSERT INTO `stock_movements` VALUES (1,1,1,'in',10,'Stok awal','2026-10-31 02:06:46','2026-10-31 02:06:46'),(2,3,2,'out',5,'Distribusi','2026-10-31 02:06:46','2026-10-31 02:06:46');
+INSERT INTO `stock_movements` VALUES (1,1,1,'in',10,'Stok awal','2026-11-01 06:36:02','2026-11-01 06:36:02'),(2,2,1,'in',3,'Stok awal','2026-11-01 06:36:02','2026-11-01 06:36:02'),(3,3,1,'in',50,'Stok awal','2026-11-01 06:36:02','2026-11-01 06:36:02'),(4,3,2,'out',5,'Distribusi','2026-11-01 06:36:02','2026-11-01 06:36:02'),(5,4,1,'in',100,'Stok awal','2026-11-01 06:36:02','2026-11-01 06:36:02');
 /*!40000 ALTER TABLE `stock_movements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,7 +358,7 @@ CREATE TABLE `suppliers` (
 
 LOCK TABLES `suppliers` WRITE;
 /*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
-INSERT INTO `suppliers` VALUES (1,'PT Sumber Jaya','08123456789','info@sumberjaya.test','Jakarta','2026-10-31 02:06:46','2026-10-31 02:06:46'),(2,'CV Maju Bersama','08987654321','sales@majubersama.test','Bandung','2026-10-31 02:06:46','2026-10-31 02:06:46');
+INSERT INTO `suppliers` VALUES (1,'PT Sumber Jaya','08123456789','info@sumberjaya.test','Jakarta','2026-11-01 06:36:02','2026-11-01 06:36:02'),(2,'CV Maju Bersama','08987654321','sales@majubersama.test','Bandung','2026-11-01 06:36:02','2026-11-01 06:36:02');
 /*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,7 +390,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin Gudang','admin@gudangku.test',NULL,'$2y$12$qDPuANyIptNY9k/VllBRfe7UAv7ye4eNqSlD4dZZuvflCLOm3bOEm','admin',NULL,'2026-10-31 02:06:46','2026-10-31 02:06:46'),(2,'Staff Gudang','staff@gudangku.test',NULL,'$2y$12$gYqUfcQCy86cBFM4XKt5VulqHDFeg7bXkCbUv0m7qYKZTPaimiXDK','staff',NULL,'2026-10-31 02:06:46','2026-10-31 02:06:46');
+INSERT INTO `users` VALUES (1,'Admin Gudang','admin@gudangku.test',NULL,'$2y$12$E3n.8l3dWw06g9ZPQMorZe2T9MBCLfG/mT.EQwAkxeLQyrm8jHZo6','admin',NULL,'2026-11-01 06:36:02','2026-11-01 06:36:02'),(2,'Staff Gudang','staff@gudangku.test',NULL,'$2y$12$ZXWZOQsXS2PLz5uDFvnUpOTHWTf8iXu1gc.agDLazvnKWzzrj7qJS','staff',NULL,'2026-11-01 06:36:02','2026-11-01 06:36:02');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-31 16:06:48
+-- Dump completed on 2026-11-01 20:36:02

@@ -41,6 +41,9 @@ class DatabaseSeeder extends Seeder
         $p4 = Product::create(['category_id' => $catMakanan->id, 'supplier_id' => $sup2->id, 'name' => 'Kopi Sachet', 'sku' => 'MKN-001', 'description' => 'Kopi instan sachet', 'price' => 2000, 'stock' => 100, 'min_stock' => 20]);
 
         StockMovement::create(['product_id' => $p1->id, 'user_id' => $admin->id, 'type' => 'in', 'quantity' => 10, 'note' => 'Stok awal']);
+        StockMovement::create(['product_id' => $p2->id, 'user_id' => $admin->id, 'type' => 'in', 'quantity' => 3, 'note' => 'Stok awal']);
+        StockMovement::create(['product_id' => $p3->id, 'user_id' => $admin->id, 'type' => 'in', 'quantity' => 50, 'note' => 'Stok awal']);
         StockMovement::create(['product_id' => $p3->id, 'user_id' => $staff->id, 'type' => 'out', 'quantity' => 5, 'note' => 'Distribusi']);
+        StockMovement::create(['product_id' => $p4->id, 'user_id' => $admin->id, 'type' => 'in', 'quantity' => 100, 'note' => 'Stok awal']);
     }
 }
