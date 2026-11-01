@@ -26,7 +26,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
-    Route::resource('stock_movements', StockMovementController::class)->only(['index', 'create', 'store', 'destroy']);
+    Route::get('/stock_movements', [StockMovementController::class, 'index'])->name('stock_movements.index');
+    Route::get('/stock_movements/create', [StockMovementController::class, 'create'])->name('stock_movements.create');
+    Route::post('/stock_movements', [StockMovementController::class, 'store'])->name('stock_movements.store');
+
+    Route::middleware('admin')->group(function () {
+        Route::delete('/stock_movements/{stockMovement}', [StockMovementController::class, 'destroy'])->name('stock_movements.destroy');
+    });
 
     // Admin-only management
     Route::middleware('admin')->group(function () {

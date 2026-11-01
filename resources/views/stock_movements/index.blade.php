@@ -32,10 +32,14 @@
                 <td class="px-4 py-2">{{ $m->note ?? '-' }}</td>
                 <td class="px-4 py-2">{{ $m->user->name ?? '-' }}</td>
                 <td class="px-4 py-2">
+                    @if(auth()->user()->isAdmin())
                     <form method="POST" action="{{ route('stock_movements.destroy', $m) }}" class="inline" onsubmit="return confirm('Batalkan pergerakan ini? Stok akan dikembalikan.')">
                         @csrf @method('DELETE')
                         <button class="text-red-600 hover:underline">Batalkan</button>
                     </form>
+                    @else
+                    <span class="text-slate-400">-</span>
+                    @endif
                 </td>
             </tr>
             @empty
